@@ -4,6 +4,8 @@
 
 `terraform init -var "source=coin/bch"`
 
+`terraform init -var-file terraform.tfvars`
+
 
 导入aws key
 
