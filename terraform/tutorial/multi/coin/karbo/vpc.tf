@@ -5,7 +5,7 @@ resource "aws_security_group" "karbo" {
     ingress {
         from_port = 22
         to_port = 22
-        protocol = "ssh"
+        protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
     // ingress {
@@ -14,21 +14,15 @@ resource "aws_security_group" "karbo" {
     //     protocol = "tcp"
     //     cidr_blocks = ["0.0.0.0/0"]
     // }
-    // ingress {
-    //     from_port = 443
-    //     to_port = 443
-    //     protocol = "tcp"
-    //     cidr_blocks = ["0.0.0.0/0"]
-    // }
     ingress {
-        from_port = -1
-        to_port = -1
-        protocol = "icmp"
+        from_port = 32348
+        to_port = 32348
+        protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
     egress {
-        from_port = -1
-        to_port = -1
+        from_port = 0
+        to_port = 65535
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
