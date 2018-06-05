@@ -55,7 +55,6 @@ resource "aws_instance" "karbo" {
   }
 
   provisioner "local-exec" {
-    command = "echo ${aws_instance.karbo.region} >> ip_address.txt "
     command = "echo ${aws_instance.karbo.public_ip} >> ip_address.txt"
   }
   
@@ -72,7 +71,9 @@ resource "aws_instance" "karbo" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo bash /tmp/install_krb.sh"
+      "sudo bash /tmp/install_krb.sh" ,
+      "nohup karbowanecd &>/dev/null &" ,
+      "sleep 1",
     ]
   }
 }

@@ -14,8 +14,4 @@ else
 fi
 
 echo "Extracting Tar File"
-tar -xf $KARBOFILE
-sudo mv karbowanecd /usr/bin/karbowanecd
-
-echo "Begain To Sync Block"
-nohup karbowanecd &
+tar -xf $KARBOFILE -C /usr/bin/
