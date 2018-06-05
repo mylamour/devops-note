@@ -21,6 +21,7 @@ resource "aws_key_pair" "local" {
 * 需要一对已经存在的`ssh key`，可以通过`ssh-keygen`生成
 * 注意如果修改了外部脚本的地址，需要在对应的`module.tf`里修改`file`的路径
 * `shell`脚本中需要为耗时操作设置等待时间，否则直接会退出，例如`sudo`操作时的权限竞争
+* 创建`s3`需要注意名称只允许小写字母和数字
 
 # 使用指南
 
@@ -64,7 +65,7 @@ resource "aws_key_pair" "local" {
 - [ ] LifeCycle使用
 - [ ] 规范化目录结构和文件名命名
 - [ ] 全局变量如何使用，多个子项目内如何使用
-
+- [ ] 控制ec2向s3拉取数据
 
 # Other
 
