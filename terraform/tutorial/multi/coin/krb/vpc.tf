@@ -8,13 +8,13 @@ resource "aws_security_group" "karbo" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    // ingress {
-    //     from_port = 80
-    //     to_port = 80
-    //     protocol = "tcp"
-    //     cidr_blocks = ["0.0.0.0/0"]
-    // }
-    ingress {
+    ingress {//p2p
+        from_port = 32347
+        to_port = 32347
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {//rpc
         from_port = 32348
         to_port = 32348
         protocol = "tcp"

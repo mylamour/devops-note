@@ -11,7 +11,7 @@ data "aws_ami" "default" {
 
   filter {
     name   = "name"
-    values = ["amzn-ami-hvm-2016.09*"]
+    values = ["ubuntu-xenial-16.04*"]
   }
 
   filter {
@@ -44,18 +44,18 @@ resource "aws_instance" "btc" {
   }
 
   provisioner "file" {
-    source      = "scripts/install_bitcoin.sh"
-    destination = "/tmp/install_bitcoin.sh"
+    source      = "scripts/install_btc.sh"
+    destination = "/tmp/install_btc.sh"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "sudo bash /tmp/bitcoinAutoNode.sh"
+      "sudo bash /tmp/btc.sh"
     ]
   }
 }
 
 resource "aws_key_pair" "local" {
   key_name   = "local"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDyHfIBLpGWzmOi35aSn7mjib+LN1GHKraWlas6aNW7lqB1QC0H2SnyDX3t9gPBbQ4ilnZWUf2/NK9DbxsnmQYb/XBEP0S5NfpALVYLgTudi5cBoQP8b9Z1/O9yUuIu0MTgETYYBrRT5mHVk0yMWiQ625RCjEQ1hDhVYQS5yO4k4T0yQYjZeGZmXZGL2J84+H5Hj+Og3cfWh3ndpqz93n7EAWHnIjNOKoyof8l59McKq36+K2cAJwE1r/ObZzM/vAT01q89Cqm4gMD+sB2/+GhqRmOaD/NmUYkBlQ6Sn8Cz0y6c1s6McUVZwUpIbbYKBgM6RVL/pT6w90lzfThX783 mour@lime.local"
+  public_key = "${aws_key_pair.local.key_name}"
 }
