@@ -1,5 +1,5 @@
-resource "aws_security_group" "BTC" {
-    name = "BTC"
+resource "aws_security_group" "bitcoin" {
+    name = "bitcoin"
     description = "BTC Coin VPC Rules"
 
     ingress {
@@ -8,13 +8,13 @@ resource "aws_security_group" "BTC" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    ingress {
+    ingress { //rpc
         from_port = 8332
         to_port = 8332
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    ingress {
+    ingress { //p2p
         from_port = 8333
         to_port = 8333
         protocol = "tcp"

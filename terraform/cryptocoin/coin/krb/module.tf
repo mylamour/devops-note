@@ -65,7 +65,7 @@ resource "aws_instance" "karbo" {
   }
 
   provisioner "file" {
-    source      = "scripts/install_krb.sh"
+    source      = "scripts/krb/install_krb.sh"
     destination = "/tmp/install_krb.sh"
   }
 
