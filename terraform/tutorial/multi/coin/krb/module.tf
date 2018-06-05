@@ -55,6 +55,7 @@ resource "aws_instance" "karbo" {
   }
 
   provisioner "local-exec" {
+    command = "echo ${aws_instance.karbo.region} >> ip_address.txt "
     command = "echo ${aws_instance.karbo.public_ip} >> ip_address.txt"
   }
   
