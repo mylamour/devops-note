@@ -1,3 +1,5 @@
 .terraform
 .terraform.tfstate.lock.info
 ip_address.txt
+terraform.tfstate
+terraform.tfstate.backup
