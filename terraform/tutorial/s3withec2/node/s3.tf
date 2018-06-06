@@ -1,18 +1,10 @@
-terraform {
-  required_version = ">= 0.10.3"
-}
-
-provider "aws" {
-    region = "${var.region}"
-}
-
-resource "aws_s3_bucket" "btcc_terraform_test" {
+resource "aws_s3_bucket" "btcc_coinnode_sync" {
     bucket = "${var.bucket_name}"
     acl = "private"             
     //"public-read"
 
     tags {
-        Name        = "Terraform S3"
+        Name        = "CoinBlock"
     }
 
     versioning {
