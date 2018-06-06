@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "aws" {
-    region = "us-east-1"
+    region = "ap-southeast-2"
 }
 
 resource "aws_iam_role" "sync" {
@@ -37,7 +37,7 @@ resource "aws_instance" "sync_instance" {
   ami                    = "ami-9a562df2"
   instance_type          = "t2.micro"
   iam_instance_profile   = "${aws_iam_instance_profile.sync_profile.name}"
-  vpc_security_group_ids = ["${aws_security_group.ssh.id}"]
+  vpc_security_group_ids = ["${aws_security_group.ec2.id}"]
   key_name = "${aws_key_pair.local.key_name}"
 
   tags {
