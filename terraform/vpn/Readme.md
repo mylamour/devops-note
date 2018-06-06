@@ -1,2 +1,1 @@
-Auto yes
-`terraform apply -input=false`
+以每次新启动一个实例修改配置文件的方式获取新建vpn
