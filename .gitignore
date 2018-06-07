@@ -3,3 +3,6 @@
 ip_address.txt
 terraform.tfstate
 terraform.tfstate.backup
+openvpn
+shadowsocks
+accounts.sh
