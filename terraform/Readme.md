@@ -1,4 +1,4 @@
-## 注意
+# 注意
 本部署均基于`ubuntu`操作系统
 
 * 需要一对已经存在的`ssh key`，可以通过`ssh-keygen`生成
@@ -6,6 +6,9 @@
 * `shell`脚本中需要为耗时操作设置等待时间，否则直接会退出，例如`sudo`操作时的权限竞争
 * 创建`s3`需要注意名称只允许小写字母和数字
 * 注意采用了`lifecycle`的属性之后的无法通过`terraform destroy`直接进行销毁
+
+# 问题
+* [Terraform doesn't reuse an AWS Role it just created and fails?](https://github.com/hashicorp/terraform/issues/8184)
 
 # 使用指南
 

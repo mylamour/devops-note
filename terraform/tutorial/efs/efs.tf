@@ -1,6 +1,6 @@
 resource "random_id" "creation_token" {
   byte_length   = 8
-  prefix        = "${var.name}-"
+  prefix        = "${var.name}"
 }
 
 resource "aws_efs_file_system" "efs" {
