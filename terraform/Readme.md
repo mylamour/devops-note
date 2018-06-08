@@ -6,6 +6,21 @@
 * `shell`脚本中需要为耗时操作设置等待时间，否则直接会退出，例如`sudo`操作时的权限竞争
 * 创建`s3`需要注意名称只允许小写字母和数字
 * 注意采用了`lifecycle`的属性之后的无法通过`terraform destroy`直接进行销毁
+* 加速构建可以采用
+
+```
+provider "aws" {
+  region = "us-east-1"
+
+  # Make it faster by skipping something
+  skip_get_ec2_platforms      = true
+  skip_metadata_api_check     = true
+  skip_region_validation      = true
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+}
+```
+
 
 # 问题
 * [Terraform doesn't reuse an AWS Role it just created and fails?](https://github.com/hashicorp/terraform/issues/8184)
