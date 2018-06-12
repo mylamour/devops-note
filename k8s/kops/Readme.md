@@ -1,6 +1,13 @@
 Use Kops to Create Cluster  
 (https://kubernetes.io/docs/setup/custom-cloud/kops/)
 
+# TODO
+
+- [ ] KOPS控制扩容
+- [ ] KOPS相关的操作
+
+
+# Cheatsheet
 
 * `brew upgrade kops`
 * `aws s3 mb s3://k8s.btcc.shop`
