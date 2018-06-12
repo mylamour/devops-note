@@ -11,6 +11,7 @@ Use Kops to Create Cluster
 更改然后更新
 * `kops edit cluster useast1.k8s.btcc.shop`
 * `kops edit ig nodes useast1.k8s.btcc.shop`
+* `kops create cluster --zones=us-east-1c useast1.k8s.btcc.shop --node-count 5`
 * `kops update cluster --yes`
 
 删除K8s集群
