@@ -16,6 +16,7 @@ Config
 Create Depolyment
 * `kubectl run he --image=he:v1 --port=8080`
 * `kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml   # Create Dashboard UI `
+* `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.7.0.yaml        # Create Monitoring  `  
 
 Get Secert
 * `kubectl describe secret`
