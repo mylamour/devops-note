@@ -9,6 +9,7 @@ Use Kops to Create Cluster
 
 # Cheatsheet
 
+创建运行
 * `brew upgrade kops`
 * `aws s3 mb s3://k8s.btcc.shop`
 * `export KOPS_STATE_STORE=s3://k8s.btcc.shop`
@@ -16,8 +17,18 @@ Use Kops to Create Cluster
 * `kops update cluster useast1.k8s.btcc.shop --yes`
 
 查看集群
+* `kops export kubecfg useast1.k8s.btcc.shop         # Export kops config use kubectl`
+* `kubectl config use-context useast1.k8s.btcc.shop`
 * `kops validate cluster` 
 * `kubectl get nodes --show-labels`
+
+得到密钥访问Kubectl Proxy
+
+* `kubectl describe secret`
+>   export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+    并通过该网址进行访问 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+
+* `kops get secrets admin -oplaintext`
 
 更改然后更新
 * `kops edit cluster useast1.k8s.btcc.shop`

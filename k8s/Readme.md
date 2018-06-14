@@ -9,22 +9,13 @@
 
 Config
 * `kubectl config use-context minikube`
-* `kops export kubecfg useast1.k8s.btcc.shop         # Export kops config use kubectl`
 * `kubectl cluster-info`
-* `kubectl config show`
+* `kubectl config view`
 
 Create Depolyment
 * `kubectl run he --image=he:v1 --port=8080`
 * `kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml   # Create Dashboard UI `
 * `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.7.0.yaml        # Create Monitoring  `  
-
-Get Secert
-* `kubectl describe secret`
->   export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
-    并通过该网址进行访问 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
-
-* `kops get secrets admin -oplaintext`
-*  `kops get secrets kube --type secret -oplaintext         # 需要提前设置KOPS_STATE_STORE`
 
 Expose Services
 * `kubectl expose deployment he --type=LoadBalancer`
