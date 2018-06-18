@@ -38,7 +38,7 @@ spec:
     minSize: 3
     role: Node 
 ```
-
+* ` kops edit ig --name useast1.k8s.btcc.shop node`
 * `kops edit ig nodes useast1.k8s.btcc.shop`
 * `kops create cluster --zones=us-east-1c useast1.k8s.btcc.shop --node-count 5`
 * `kops update cluster --yes`
