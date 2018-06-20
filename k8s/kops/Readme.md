@@ -13,7 +13,7 @@ Use Kops to Create Cluster
 * `brew upgrade kops`
 * `aws s3 mb s3://k8s.btcc.shop`
 * `export KOPS_STATE_STORE=s3://k8s.btcc.shop`
-* `kops create cluster --zones=us-east-1c useast1.k8s.btcc.shop`
+* `kops create cluster --zones=us-east-1c useast1.k8s.btcc.shop --ssh-public-key ~/.ssh/id_rsa.pub  `
 * `kops update cluster useast1.k8s.btcc.shop --yes`
 
 查看集群
@@ -21,6 +21,13 @@ Use Kops to Create Cluster
 * `kubectl config use-context useast1.k8s.btcc.shop`
 * `kops validate cluster` 
 * `kubectl get nodes --show-labels`
+
+更新ssh key通过ssh访问
+
+* `kops delete secret --name useast1.k8s.btcc.shop sshpublickey admin`
+* `kops create secret --name useast1.k8s.btcc.shop sshpublickey admin -i ~/.ssh/id_rsa.pub`
+* `kops update cluster --yes`
+* `kops rolling-update cluster --name useast1.k8s.btcc.shop --yes #此刻就可以通过自己的秘钥去连接服务器了,操作的过程实质是关闭了原来的服务器。启动了个新的一样的服务器。`
 
 得到密钥访问Kubectl Proxy
 
