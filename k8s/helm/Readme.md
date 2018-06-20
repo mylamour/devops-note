@@ -3,6 +3,36 @@ helm是客户端，tiler是服务端
 
 https://daemonza.github.io/2017/02/20/using-helm-to-deploy-to-kubernetes/
 
+常用操作
+```
+helm search
+helm search mysql
+helm inspect mysql
+helm inspect values stable/mariadb
+
+helm install stable/mariadb
+helm install -f config.yaml stable/mariadb  # Your  Local Config File To Do This Thing
+
+helm lint
+helm package foldername --debug
+helm install foldername.tar.gz
+helm install https://example.com/charts/foo-1.2.3.tgz
+
+helm repo update
+helm repo list
+helm repo add dev http://example.com
+
+
+helm install foldername.tar.gz --debug
+helm ls 
+helm ls -a
+helm ls --deleted
+helm delete xxxx
+
+
+helm plugin install https://github.com/technosophos/helm-template
+
+```
 
 FAQ:
 
