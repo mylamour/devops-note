@@ -43,3 +43,9 @@ kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ```
+
+
+Resources
+
+* [The Chart Best Practice](https://docs.helm.sh/chart_best_practices/#the-chart-best-practices-guide)
+
