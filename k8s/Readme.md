@@ -8,6 +8,9 @@
 # Note
 
 * 启动服务时要用前台命令不是后台命令，否则后台命令一旦执行完毕，就会退出，然后容器重启，陷入无限循环。
+* Export Services 有两种 LoadBalancer 和 NodePort
+
+
 
 # Cheatsheet
 
