@@ -63,3 +63,7 @@ spec:
 * `kops create cluster --zones=us-east-1c useast1.k8s.btcc.shop --associate-public-ip=true`
 * `kops update cluster --yes`
 * `kops rolling-update cluster`
+
+# Resources
+
+* [AWS KOPS](https://github.com/kubernetes/kops/blob/master/docs/aws.md)

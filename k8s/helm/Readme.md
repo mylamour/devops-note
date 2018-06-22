@@ -1,5 +1,5 @@
 安装后k8s以及helm之后，使用`helm init`进行初始化
-helm是客户端，tiler是服务端
+helm是客户端，tiler是服务端,所以还需要安装一个tiler,详细查看FAQ
 
 https://daemonza.github.io/2017/02/20/using-helm-to-deploy-to-kubernetes/
 
@@ -34,7 +34,7 @@ helm plugin install https://github.com/technosophos/helm-template
 
 ```
 
-FAQ:
+# FAQ:
 
 1. [Error: no available release name found](https://github.com/kubernetes/helm/issues/3055)
 
@@ -44,8 +44,15 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ```
 
+2. Repo update之后还是无法安装，可能是因为没有加stable
+```
+    helm install heapster           不可以
+    helm install stable/heapster    可以
 
-Resources
+```
+
+
+# Resources
 
 * [The Chart Best Practice](https://docs.helm.sh/chart_best_practices/#the-chart-best-practices-guide)
 
