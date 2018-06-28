@@ -21,6 +21,8 @@ helm install https://example.com/charts/foo-1.2.3.tgz
 helm repo update
 helm repo list
 helm repo add dev http://example.com
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+helm search incubator
 
 
 helm install foldername.tar.gz --debug
@@ -28,11 +30,16 @@ helm ls
 helm ls -a
 helm ls --deleted
 helm delete xxxx
-
+helm del --purge istio          #连同删除历史记录一起删除
 
 helm plugin install https://github.com/technosophos/helm-template
 
 ```
+
+有用的repo
+helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+
 
 # FAQ:
 
@@ -44,12 +51,24 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 ```
 
-2. Repo update之后还是无法安装，可能是因为没有加stable
+2. Repo update之后还是无法安装，是因为没有加stable
 ```
     helm install heapster           不可以
     helm install stable/heapster    可以
 
 ```
+
+3. Error: apiVersion "monitoring.coreos.com/v1alpha1" in alertmanager/templates/servicemonitor.yaml is not available
+
+```
+先安装
+再安装 helm install coreos/kube-prometheus
+最后安装
+    coreos/alertmanager
+
+
+```
+
 
 
 # Resources

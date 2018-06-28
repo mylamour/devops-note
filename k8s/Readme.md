@@ -3,14 +3,14 @@
 - [ ] 增加插件
 - [ ] 滚动升级 
 - [ ] 监控系统
-- [ ] Service Mesh
+- [ ] Service Mesh 与 Consul
 - [ ] 授权系统
 
 # Note
 
 * 启动服务时要用前台命令不是后台命令，否则后台命令一旦执行完毕，就会退出，然后容器重启，陷入无限循环。
 * Export Services 有两种 LoadBalancer 和 NodePort
-
+* 注意服务获取不到时，是否是在相应的命名空间，默认的命令是在default命名空间
 
 
 # Cheatsheet
