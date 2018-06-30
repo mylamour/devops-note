@@ -34,5 +34,5 @@ step4 : 创建
 Note:
 
 * 注意修改Docker的用户名密码
-* 还会有一个问题就是之前出现的http: server gave HTTP response to HTTPS client的问题，这是insecure registry的问题，需要在每台节点上设置，可以ssh上去对每台机器进行设置允许，也可以通过kops进行更新
+* 还会有一个问题就是之前出现的http: server gave HTTP response to HTTPS client的问题，这是insecure registry的问题，需要在每台节点上设置，可以ssh上去对每台机器进行设置允许，也可以通过kops进行更新。我是通过kops create 机器的时候进行设置然后修改其允许，
 
