@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wokanxing
+spec:
+  containers:
+  - name: wokanxing
+    image: api.useast1.k8s.btcc.shop:5000/shawanyi:wanwan
+  imagePullSecrets:
+  - name: regsecret

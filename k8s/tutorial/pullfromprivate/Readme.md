@@ -1,6 +1,6 @@
 Pull from private registry
 
-pre : 搭建一个Private Registry  参见这里 https://gist.github.com/mylamour/dbc63d1901a39e084c500aa9747ea40e
+pre : 搭建一个Private Registry  参见我在这里写的 https://gist.github.com/mylamour/dbc63d1901a39e084c500aa9747ea40e
 
 step1 : 创建一个k8s对docker的授权密码
 
@@ -34,4 +34,5 @@ step4 : 创建
 Note:
 
 * 注意修改Docker的用户名密码
-* 还会有一个问题就是之前出现的http can't response to https的问题，insecure的问题，需要在每台节点上设置。
+* 还会有一个问题就是之前出现的http: server gave HTTP response to HTTPS client的问题，这是insecure registry的问题，需要在每台节点上设置，可以ssh上去对每台机器进行设置允许，也可以通过kops进行更新
+
