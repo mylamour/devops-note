@@ -19,6 +19,7 @@ Config
 * `kubectl config use-context minikube`
 * `kubectl cluster-info`
 * `kubectl config view`
+* `kubectl config set-context $(kubectl config current-context) --namespace=istio-system           # Setting default namespace`
 
 Create Depolyment
 * `kubectl run he --image=he:v1 --port=8080`
