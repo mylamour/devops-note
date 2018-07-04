@@ -114,6 +114,23 @@ kops update cluster useast1.k8s.btcc.shop --yes
 kops rolling-update cluster --yes
 ```
 
+结合Terraform
+1. 创建一个tf文件，然后写入一下配置文件:
+```
+    terraform {
+    backend "s3" {
+        bucket = "k8s.btcc.shop"
+        key = "terraform"
+        region = "ap-northeast-1"
+    }
+    }
+```
+2. 然后创建集群
+`kops create cluster --state=s3://k8s.btcc.shop --zones=us-east-1c useast1.k8s.btcc.shop --ssh-public-key ~/.ssh/id_rsa.pub --target=terraform --out=. `
+
+3. 创建集群之后，会把状态保存到本机新生成的文件`kubernets.tf`以及一个包含策略的文件夹, 如果提示缺少插件，重新`terrafrom init`即可安装插件。然后即可按照正常的Terrafrom操作进行了
+
+
 # Resources
 
 * [aws with kops](https://github.com/kubernetes/kops/blob/master/docs/aws.md)
