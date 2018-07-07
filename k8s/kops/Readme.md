@@ -4,8 +4,8 @@ Use Kops to Create Cluster
 # TODO
 
 - [ ] KOPS控制扩容
-- [ ] KOPS相关的操作
-
+- [x] KOPS相关的操作
+- [x] KOPS生成机器由Terrafrom接管
 
 # Cheatsheet
 
